@@ -15,15 +15,12 @@
 Start by installing Buster (v10 of Raspbian OS) and not the lastest! Follow the link: https://www.raspberrypi.com/software/
 Obiously choose the GUI version… you need to display something in the end.
 
-Then do not forget to update & upgrade with the `apt-get` command:
+Then update & upgrade packages with the `apt-get` command:
 
 ```
 sudo apt-get update
 sudo apt-get upgrade
 ```
-
-________________________________
-
 
 ## OpenCV 3.2
 
