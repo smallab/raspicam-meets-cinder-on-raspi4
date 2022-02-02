@@ -4,15 +4,16 @@
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
 
 ## Required devices
-* a Raspi board: [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+* a "Raspi" board: [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 * a micro SD card of 8Gb minimum
 * a power outlet for the Raspberry Pi
-* a Raspicam, preferably infrared-enhanced: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
+* a "Raspicam", preferably infrared-enhanced: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
 * a video projector with a resolution of at least 1024 x 576px
 
 ## Raspbian OS setup
 
-Start by installing Buster (v10 of Raspbian OS) and no other! Follow the link: https://www.raspberrypi.com/software/
+Start by installing Buster (v10 of Raspbian OS) and not the lastest! Follow the link: https://www.raspberrypi.com/software/
+Obiously choose the GUI version… you need to display something in the end.
 
 Then do not forget to update & upgrade with the `apt-get` command:
 
@@ -32,7 +33,8 @@ It must be v3.2.0 for this program.
 
 ## Raspicam
 
-Start by allowing the use of the camera in `sudo raspi-config` : Interfaces/Camera…
+Start by allowing the use of the camera. Via the Terminal, use `sudo raspi-config`: choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button.
+If you want to learn more about the official camera and its use, follow the [official guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2)
 
 Of interest for RaspiCam:
 https://qengineering.eu/install-gstreamer-1.18-on-raspberry-pi-4.html
