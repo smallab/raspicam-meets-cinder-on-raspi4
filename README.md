@@ -27,25 +27,26 @@ sudo apt-get upgrade
 
 It must be v3.2.0 for this program. Same here, don't try and get the latest. That's all there is to it, and if this works fine you're almost there.
 
-## RaspiCam device
+## RaspiCam
 
+### Plug & play
 ![](https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/7ab130979e77e11eb977625713823e41ebe1ae64/en/images/pi4-camera-port.png)
+
 Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` for these changes to take effect.
 
 If you want to learn more about the official Pi camera and its use, follow the [official RaspiCam guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/1).
 
-## RaspiCam C++ library
+### Use with C++
 
-How the approach unfolded:
-https://discourse.libcinder.org/t/capture-with-raspbery-pi-camera-module/1578
-+
-http://www.uco.es/investiga/grupos/ava/node/40
-+
-https://github.com/rmsalinas/raspicam
-+
+A research group specialized in AI and computer vision has created a very [neat library that lets us use the RaspiCam in a C++ project](http://www.uco.es/investiga/grupos/ava/node/40), with OpenCV involved or not.
+
+Start by downloading the code that you will need to compile from [their SourceForge repository](https://sourceforge.net/projects/raspicam/files/?).
+
+Unzip that file to a folder in your Documents folder (well that's up to you after all), fire up a Terminal window, navigate to that newly created folder with `cd ~/Documents/your_complicated_path_to_raspicam` and then `mkdir build && cd build && cmake ..`.
+
+If that all worked, you're ready to compile the raspicam lib. Go for it:
 
 ```
-cmake ..
 make
 sudo make install
 sudo ldconfig   
@@ -61,10 +62,7 @@ When this is all set up, Cinder samples should compile with GCC.
 
 ______________________________
 
-Please note: to simply run a previously compiled app on a different SD card and copy-pasted to a new SD card, that’s all that needs to be installed on that new SD.
-In such case, copy the folder with BasicApp, resources folder and assets folder + make the BasicApp executable, as in:
-`sudo chmod -x /Desktop/MJBEDV/BasicApp`
-
+Please note: to simply run an app that was previously compiled on a specific Pi (i.e. your dev Pi) and copy-pasted to a new Pi (i.e. your target, production Pi), that’s all that needs to be installed on that new Pi.
 ______________________________
 
 
@@ -197,18 +195,12 @@ inline ImageSourceRef fromOcv( cv::Mat &mat )
 }
 ```
 
+## App autostart
+To run art pieces in art spaces where you're not sitting all day to monitor power cuts, you better create an autostart routine. Good thing that the Pi is built for that: it doesn't have a start button, it just starts as soon as it gets the right kind of electricity flowing in it veins.
 
+Start by installing a window controller app: `sudo apt-get install wmctrl`.
 
-APP AUTOSTART
-______________________________
-
-[Auto-run C program on start-up - Raspberry Pi Forums](https://forums.raspberrypi.com/viewtopic.php?t=126937)
-+
-Some pimping from IVVS
-
-`sudo apt-get install wmctrl`
-
-`nano ~/Desktop/startup.sh`
+Then create a first shell script with `nano ~/Desktop/startup.sh`, type the following and save:
 
 ```
 #!/bin/sh
@@ -217,20 +209,19 @@ cd /home/pi/Desktop/MJBEDV
 ./BasicApp
 ```
 
-`sudo chmod +x ~/Desktop/startup.sh`
+Don't forget to make that executable with `sudo chmod +x ~/Desktop/startup.sh`.
 
-
-`nano ~/Desktop/focus.sh`
+Create a second script with `nano ~/Desktop/focus.sh`, type the following and save:
 
 ```
 #!/bin/sh
 wmctrl -R BasicApp
-
-sudo chmod +x ~/Desktop/focus.sh
 ```
 
+Again, make that executable with `sudo chmod +x ~/Desktop/focus.sh`.
 
-`sudo nano /etc/xdg/lxsession/LXDE-pi/autostart`
+
+Finally create/open the autostart routine file with `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` and type and save:
 
 ```
 @lxpanel —profile LXDE-pi
@@ -242,12 +233,8 @@ sleep 10
 /home/pi/Desktop/focus.sh
 ```
 
-`sudo reboot`
+You're all set, ready to `sudo reboot` to give it a shot.
 
 ——————————————————
-TODO
 
-• utiliser la nouvelle 3D ajustée
-• essayer de moins remonter la caméra quand la personne est très lointaine : à peine au-dessus de l’horizon
-• test de flou
-• diminuer le rendu (1440 à passer en 1280 ou même 1024) pour essayer d’optimiser le timing 
+If you're planning on running your app on a different Pi than where you develop (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder besides that BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod -x ~/Desktop/MJBEDV/BasicApp`.
