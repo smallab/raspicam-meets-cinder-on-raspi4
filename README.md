@@ -4,32 +4,34 @@
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
 
 ## Required devices
-* [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
-* [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
-* video projector with a resolution of at least 1024 x 576px
+* a Raspi board: [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+* a micro SD card of 8Gb minimum
+* a power outlet for the Raspberry Pi
+* a Raspicam, preferably infrared-enhanced: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
+* a video projector with a resolution of at least 1024 x 576px
 
 
 ## Raspbian OS setup
 _______________________________
 
-Start by installing Buster (v10 of Raspbian OS) and no other!
+Start by installing Buster (v10 of Raspbian OS) and no other! Follow the link: https://www.raspberrypi.com/software/
 
 Then do not forget to update & upgrade with the `apt-get` command:
 
-`sudo apt-get update`
-`sudo apt-get upgrade`
+```sudo apt-get update
+sudo apt-get upgrade```
 
-
-## OPENCV 3.2
 ________________________________
+
+
+## OpenCV 3.2
 
 `sudo apt-get install libopencv-dev`
 
 It must be v3.2.0 for this program.
 
 
-RASPICAM
-_________________________________
+## Raspicam
 
 Start by allowing the use of the camera in `sudo raspi-config` : Interfaces/Camera…
 
