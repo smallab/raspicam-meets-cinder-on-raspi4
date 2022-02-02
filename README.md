@@ -18,8 +18,10 @@ Start by installing Buster (v10 of Raspbian OS) and no other! Follow the link: h
 
 Then do not forget to update & upgrade with the `apt-get` command:
 
-```sudo apt-get update
-sudo apt-get upgrade```
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
 
 ________________________________
 
