@@ -27,14 +27,14 @@ sudo apt-get upgrade
 
 It must be v3.2.0 for this program. Same here, don't try and get the latest. That's all there is to it, and if this works fine you're almost there.
 
-## Raspicam
+## RaspiCam device
 
+![](https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/7ab130979e77e11eb977625713823e41ebe1ae64/en/images/pi4-camera-port.png)
 Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` for these changes to take effect.
 
-If you want to learn more about the official camera and its use, follow the [official Raspicam guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2).
+If you want to learn more about the official Pi camera and its use, follow the [official RaspiCam guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/1).
 
-Of interest for RaspiCam:
-https://qengineering.eu/install-gstreamer-1.18-on-raspberry-pi-4.html
+## RaspiCam C++ library
 
 How the approach unfolded:
 https://discourse.libcinder.org/t/capture-with-raspbery-pi-camera-module/1578
@@ -55,7 +55,7 @@ Finally, [update the lib path](https://raspberrypi.stackexchange.com/questions/2
 
 `export LIBRARY_PATH=/opt/vc/lib`
 
-When this is all setup, Cinder samples should compile with GCC.
+When this is all set up, Cinder samples should compile with GCC.
 
 
 
