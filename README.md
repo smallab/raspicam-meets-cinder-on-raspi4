@@ -10,9 +10,7 @@
 * a Raspicam, preferably infrared-enhanced: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
 * a video projector with a resolution of at least 1024 x 576px
 
-
 ## Raspbian OS setup
-_______________________________
 
 Start by installing Buster (v10 of Raspbian OS) and no other! Follow the link: https://www.raspberrypi.com/software/
 
@@ -31,7 +29,6 @@ ________________________________
 `sudo apt-get install libopencv-dev`
 
 It must be v3.2.0 for this program.
-
 
 ## Raspicam
 
@@ -55,15 +52,17 @@ sudo make install
 sudo ldconfig   
 ```
 
-`export LIBRARY_PATH=/opt/vc/lib` (https://raspberrypi.stackexchange.com/questions/24394/raspicam-c-api-mmal-linking)
+Finally, [update the lib path](https://raspberrypi.stackexchange.com/questions/24394/raspicam-c-api-mmal-linking):
 
-et les exemples devraient compiler avec g++
+`export LIBRARY_PATH=/opt/vc/lib`
+
+When this is all setup, Cinder samples should compile with GCC.
 
 
 
 ______________________________
 
-To simply run a previously compiled app on a different SD card and copy-pasted to a new SD card, that’s all that needs to be installed on that new SD.
+Please note: to simply run a previously compiled app on a different SD card and copy-pasted to a new SD card, that’s all that needs to be installed on that new SD.
 In such case, copy the folder with BasicApp, resources folder and assets folder + make the BasicApp executable, as in:
 `sudo chmod -x /Desktop/MJBEDV/BasicApp`
 
@@ -71,8 +70,7 @@ ______________________________
 
 
 
-CINDER
-_______________________________
+## CINDER
 
 https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html
 +
