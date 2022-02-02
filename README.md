@@ -1,4 +1,4 @@
-# extension-du-vide
+# Extension du Vide
 ["Extension du Vide"](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/) is an open-sourced art work by French artist Marie-Julie Bourgeois.
 
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
