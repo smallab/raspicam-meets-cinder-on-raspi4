@@ -1,13 +1,13 @@
 # Extension du Vide
-["Extension du Vide"](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/) is an open-sourced art work by French artist Marie-Julie Bourgeois.
+[Extension du Vide](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/) is an open-sourced art work by French artist [Marie-Julie Bourgeois](https://www.mariejuliebourgeois.fr).
 
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
 
 ## Required devices
-* a "Raspi" board: [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+* a "Pi" board: [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 * a micro SD card of 8Gb minimum
 * a power outlet for the Raspberry Pi
-* a "Raspicam", preferably infrared-enhanced: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
+* a "RaspiCam", preferably infrared-enhanced because they work better in low light conditions: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
 * a video projector with a resolution of at least 1024 x 576px
 
 ## Raspbian OS setup
@@ -29,7 +29,8 @@ It must be v3.2.0 for this program. Same here, don't try and get the latest. Tha
 
 ## Raspicam
 
-Start by allowing the use of the camera. To do so via the Terminal, use `sudo raspi-config`: choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button.
+Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` for these changes to take effect.
+
 If you want to learn more about the official camera and its use, follow the [official Raspicam guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2).
 
 Of interest for RaspiCam:
