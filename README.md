@@ -12,8 +12,7 @@
 
 ## Raspbian OS setup
 
-Start by installing Buster (v10 of Raspbian OS) and not the lastest! Follow the link: https://www.raspberrypi.com/software/
-Obiously choose the GUI version… you need to display something in the end.
+Start by installing Buster (v10 of Raspbian OS) and not the lastest! Follow the link: https://www.raspberrypi.com/software/. Obiously choose the GUI version… you need to display something in the end.
 
 Then update & upgrade packages with the `apt-get` command:
 
@@ -26,12 +25,12 @@ sudo apt-get upgrade
 
 `sudo apt-get install libopencv-dev`
 
-It must be v3.2.0 for this program.
+It must be v3.2.0 for this program. Same here, don't try and get the latest. That's all there is to it, and if this works fine you're almost there.
 
 ## Raspicam
 
-Start by allowing the use of the camera. Via the Terminal, use `sudo raspi-config`: choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button.
-If you want to learn more about the official camera and its use, follow the [official guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2)
+Start by allowing the use of the camera. To do so via the Terminal, use `sudo raspi-config`: choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button.
+If you want to learn more about the official camera and its use, follow the [official Raspicam guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/2).
 
 Of interest for RaspiCam:
 https://qengineering.eu/install-gstreamer-1.18-on-raspberry-pi-4.html
