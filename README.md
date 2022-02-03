@@ -25,7 +25,7 @@ sudo apt-get upgrade
 
 `sudo apt-get install libopencv-dev`
 
-It must be v3.2.0 for this program. Same here, don't try and get the latest. That's all there is to it, and if this works fine you're almost there.
+It must be v3.2.0 for this program. Same here, don't try and get the latest. That's all there is to it, if this works fine then you've got OpenCV running on your machine almost for free.
 
 ## RaspiCam
 
