@@ -128,7 +128,7 @@ In order to compile without a system path error, change line 136 in the `proj/cm
 As of now, Cinder's samples should compile: try the Cinder/samples/BasicApp using its CMake setup:
 
 ```
-cd Cinder/samples/BasicApp/proj/cmake && mkdir build && cd build \
+cd Cinder/samples/BasicApp/proj/cmake && mkdir build && cd build
 cmake ..
 ```
 
