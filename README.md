@@ -12,7 +12,7 @@
 
 ## Raspbian OS setup
 
-Start by installing Buster (v10 of Raspbian OS) and not the lastest! Follow the link: https://www.raspberrypi.com/software/. Obiously choose the GUI version… you need to display something in the end.
+Start by installing Raspbian OS in its Buster flavor (version 10) and not in its latest release! Follow the link: https://www.raspberrypi.com/software/. When selecting the right version, obviously prefer the GUI-enabled version, you'll need to be able display something in the end!
 
 Then update & upgrade packages with the `apt-get` command:
 
@@ -21,7 +21,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-## OpenCV 3.2
+## OpenCV 3.2 install
 
 `sudo apt-get install libopencv-dev`
 
@@ -29,7 +29,9 @@ OpenCV must be installed in version 3.2.0 for this program: don't try and instal
 
 That's all there is to it: if this works fine then you've got OpenCV running on your machine, almost for free. Yay.
 
-## RaspiCam
+## RaspiCam setup
+
+What's called a RaspiCam is a webcam that uses the special camera interface on the Pi board. It's a very appropriate kind of device when you need to create a Computer Vision enabled installation with the Pi.
 
 ### Plug & play
 ![](https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/7ab130979e77e11eb977625713823e41ebe1ae64/en/images/pi4-camera-port.png)
@@ -58,18 +60,17 @@ Finally, [update the lib path](https://raspberrypi.stackexchange.com/questions/2
 
 `export LIBRARY_PATH=/opt/vc/lib`
 
-When this is all set up, we've got things set up so that Cinder samples will compile with GCC (when Cinder itself is compiled, please be patient).
-
-
 
 ______________________________
 
-Please note: to simply run an app that was previously compiled on a specific Pi (i.e. your dev Pi) and copy-pasted to a new Pi (i.e. your target, production Pi), that’s all that needs to be installed on that new Pi.
+**Please note that to simply run an app that was previously compiled on a specific Pi (i.e. your dev Pi) and copy-pasted to a new Pi (i.e. your target, production Pi), that’s all that needs to be installed on that new Pi.**
 ______________________________
 
 
 
-## CINDER
+## Cinder
+
+Cinder is a creative coding framework made in C++: it does what Processing does, but faster and using less resources. It is similar to OpenFrameworks, but better consolidated and packaged, more professional.
 
 https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html
 +
