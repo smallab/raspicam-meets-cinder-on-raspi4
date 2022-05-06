@@ -25,24 +25,26 @@ sudo apt-get upgrade
 
 `sudo apt-get install libopencv-dev`
 
-It must be v3.2.0 for this program. Same here, don't try and get the latest. That's all there is to it, if this works fine then you've got OpenCV running on your machine almost for free.
+OpenCV must be installed in version 3.2.0 for this program: don't try and install the latest!
+
+That's all there is to it: if this works fine then you've got OpenCV running on your machine, almost for free. Yay.
 
 ## RaspiCam
 
 ### Plug & play
 ![](https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/7ab130979e77e11eb977625713823e41ebe1ae64/en/images/pi4-camera-port.png)
 
-Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` for these changes to take effect.
+Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` in order for these changes to take effect.
 
 If you want to learn more about the official Pi camera and its use, follow the [official RaspiCam guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/1).
 
 ### Use with C++
 
-A research group specialized in AI and computer vision has created a very [neat library that lets us use the RaspiCam in a C++ project](http://www.uco.es/investiga/grupos/ava/node/40), with OpenCV involved or not.
+A research group specialized in AI and computer vision has created a very [neat library that lets us use the RaspiCam in a C++ project](http://www.uco.es/investiga/grupos/ava/node/40), with or without involving OpenCV.
 
 Start by downloading the code that you will need to compile from [their SourceForge repository](https://sourceforge.net/projects/raspicam/files/?).
 
-Unzip that file to a folder in your Documents folder (well that's up to you after all), fire up a Terminal window, navigate to that newly created folder with `cd ~/Documents/your_complicated_path_to_raspicam` and then `mkdir build && cd build && cmake ..`.
+Unzip that file to a folder in your Pi's Documents folder (well that's actually up to you), fire up a Terminal window, navigate to that newly created folder with `cd ~/Documents/your_complicated_path_to_raspicam` and then `mkdir build && cd build && cmake ..`.
 
 If that all worked, you're ready to compile the raspicam lib. Go for it:
 
@@ -56,7 +58,7 @@ Finally, [update the lib path](https://raspberrypi.stackexchange.com/questions/2
 
 `export LIBRARY_PATH=/opt/vc/lib`
 
-When this is all set up, Cinder samples should compile with GCC.
+When this is all set up, we've got things set up so that Cinder samples will compile with GCC (when Cinder itself is compiled, please be patient).
 
 
 
@@ -110,6 +112,8 @@ libxi-dev
 `sudo apt-get install xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev`
 `sudo apt-get install libxtst-dev`
 
+You're now ready to clone Cinder and build it, using the right flag to only target OpenGL ES3 in order to fit with the Pi:
+
 `git clone —recursive https://github.com/cinder/Cinder.git`
 `cd Cinder`
 `mkdir build && cd build`
@@ -117,11 +121,30 @@ libxi-dev
 `make -j 3`
 
 
-Pour compiler sans erreur avec le system path, changer la ligne 136 dans le fichier proj/cmake/modules/cinderMakeApp.cmake (ajout du flag -lstdc++fs pour le Linker) :
-	target_link_libraries( ${ARG_APP_NAME} PUBLIC cinder ${ARG_LIBRARIES} -lstdc++fs )
+In order to compile without a system path error, change line 136 in the `proj/cmake/modules/cinderMakeApp.cmake` file by adding the `-lstdc++fs` flag to notify the Linker it should use that file system lib:
 
+`target_link_libraries( ${ARG_APP_NAME} PUBLIC cinder ${ARG_LIBRARIES} -lstdc++fs )`
 
-samples/BasicApp devrait compiler désormais avec son cmake
+As of now, Cinder's samples should compile: try the Cinder/samples/BasicApp using its CMake setup:
+
+```
+cd Cinder/samples/BasicApp/proj/cmake && mkdir build && cd build \
+cmake ..
+```
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
+
+?
 
 
 CINDER + RASPICAM
