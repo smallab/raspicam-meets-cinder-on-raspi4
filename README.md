@@ -3,8 +3,10 @@
 
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
 
+### Why a Pi?
 Why use a Pi board, for something that could easily run on a Mac mini with a lot less hassle? Raspberry Pi's are much cheaper, much lighter (in weight and in size!), much less energy-consuming, all things that make them a heck of a platform of choice for installations when their processing power will be enough… and OpenGL ES3 will do what you need it to do.
 
+### Limitations!
 When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with the standard version. Make sure you read through the limitations before you embark on a "Pi-OpenGL" journey!
 
 ## Required devices
