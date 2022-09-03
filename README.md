@@ -267,4 +267,4 @@ You're all set, ready to `sudo reboot` to give it a shot.
 
 ——————————————————
 
-If you're planning on running your app on a different Pi than where you develop (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder besides that BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod -x ~/Desktop/MJBEDV/BasicApp`.
+If you're planning on running your app on a different Pi than where you develop (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder besides that BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod -x ~/Desktop/your_folder_name/BasicApp`.
