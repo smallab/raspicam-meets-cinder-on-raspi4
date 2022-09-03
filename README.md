@@ -159,7 +159,8 @@ _________________________________
 
 Duplicate the `Cinder/samples/BasicApp` folder, name it whichever way you want and then add OpenCV code to use the RaspiCam:
 
-`mkdir build && cd build` and `cmake .. -DCINDER_TARGET_GL=es3-rpi`
+`mkdir build && cd build` \
+`cmake .. -DCINDER_TARGET_GL=es3-rpi`
 
 After that, you need to add ` -lopencv_core -lopencv_imgcodecs -lopencv_imgproc` in the `your_app_folder_name/proj/cmake/build/CMakeFiles/BasicApp.dir/link.txt` file at the end of the following line:
 
@@ -270,4 +271,4 @@ You're all set, ready to `sudo reboot` to give it a shot.
 
 ——————————————————
 
-If you're planning on running your app on a different Pi than where you develop (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder besides that BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod -x ~/Desktop/your_folder_name/BasicApp`.
+If you're planning on running your app on a different Pi than your dev Pi (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder *right besides* that compiled BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod -x ~/Desktop/your_folder_name/BasicApp`.
