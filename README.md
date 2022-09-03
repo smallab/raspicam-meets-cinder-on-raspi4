@@ -157,19 +157,22 @@ cmake ..
 CINDER + RASPICAM
 _________________________________
 
-Dupliquer `Cinder/samples/BasicApp` puis ajouter de l’OpenCV qui exploite la raspicam
+Duplicate the `Cinder/samples/BasicApp` folder, name it whichever way you want and then add OpenCV code to use the RaspiCam:
 
 `mkdir build && cd build`
 `cmake .. -DCINDER_TARGET_GL=es3-rpi`
-Après un `cmake .. -DCINDER_TARGET_GL=es3-rpi` pour exploiter le bordel de raspicam il faut aller rajouter dans `samples/XXXXXXApp/proj/cmake/build/CMakeFiles/XXXXXXApp.dir/link.txt` à  la fin de la ligne :
+
+After that, you need to add a few directives in the `your_app_folder_name/proj/cmake/build/CMakeFiles/BasicApp.dir/link.txt` file at the end of the following line:
 ` -lraspicam -lraspicam_cv -lmmal -lmmal_core -lmmal_util -lopencv_core -lopencv_imgcodecs -lopencv_imgproc`
+
+Then:
 `make`
 `./Debug/BasicApp/BasicApp`
 
 
-À partir de là  tout devrait être possible.
+Starting from here, making art becomes possible!
 
-Pour pouvoir récupérer les `cv::Mat` produits par OpenCV il faut recupérer la méthode faite pour Cinder `fromOcv()` et pour ça on peut copier la classe et la fonction inline suivantes depuis https://github.com/cinder/Cinder-OpenCV/blob/master/include/CinderOpenCV.h :
+In order to be able to use the `cv::Mat` images produced by OpenCV you need to fetch the Cinder method `fromOcv()` and its encapsulating class from https://github.com/cinder/Cinder-OpenCV/blob/master/include/CinderOpenCV.h:
 
 ```
 class ImageSourceCvMat : public ImageSource {
@@ -226,7 +229,7 @@ inline ImageSourceRef fromOcv( cv::Mat &mat )
 ```
 
 ## App autostart
-To run art pieces in art spaces where you're not sitting all day to monitor power cuts, you better create an autostart routine. Good thing that the Pi is built for that: it doesn't have a start button, it just starts as soon as it gets the right kind of electricity flowing in it veins.
+To run art pieces in art spaces where you're not sitting all day to monitor power cuts, you'd better create an autostart routine. Good thing that the Pi is built for that: it doesn't have a start button, it just starts as soon as it gets the right kind of electricity flowing in it veins.
 
 Start by installing a window controller app: `sudo apt-get install wmctrl`.
 
@@ -234,12 +237,12 @@ Then create a first shell script with `nano ~/Desktop/startup.sh`, type the foll
 
 ```
 #!/bin/sh
-echo MJBEDV
-cd /home/pi/Desktop/MJBEDV
+echo your_folder_name
+cd /home/pi/Desktop/your_folder_name
 ./BasicApp
 ```
 
-Don't forget to make that executable with `sudo chmod +x ~/Desktop/startup.sh`.
+Don't forget to make that shell script executable with `sudo chmod +x ~/Desktop/startup.sh`.
 
 Create a second script with `nano ~/Desktop/focus.sh`, type the following and save:
 
@@ -249,7 +252,6 @@ wmctrl -R BasicApp
 ```
 
 Again, make that executable with `sudo chmod +x ~/Desktop/focus.sh`.
-
 
 Finally create/open the autostart routine file with `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` and type and save:
 
