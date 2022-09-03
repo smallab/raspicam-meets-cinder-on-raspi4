@@ -159,15 +159,13 @@ _________________________________
 
 Duplicate the `Cinder/samples/BasicApp` folder, name it whichever way you want and then add OpenCV code to use the RaspiCam:
 
-`mkdir build && cd build`
-`cmake .. -DCINDER_TARGET_GL=es3-rpi`
+`mkdir build && cd build` and `cmake .. -DCINDER_TARGET_GL=es3-rpi`
 
 After that, you need to add a few directives in the `your_app_folder_name/proj/cmake/build/CMakeFiles/BasicApp.dir/link.txt` file at the end of the following line:
 ` -lraspicam -lraspicam_cv -lmmal -lmmal_core -lmmal_util -lopencv_core -lopencv_imgcodecs -lopencv_imgproc`
 
 Then:
-`make`
-`./Debug/BasicApp/BasicApp`
+`make` and `./Debug/BasicApp/BasicApp`
 
 
 Starting from here, making art becomes possible!
