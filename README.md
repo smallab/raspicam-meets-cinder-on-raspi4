@@ -50,6 +50,8 @@ If you want to learn more about the official Pi camera and its use, follow the [
 
 A research group specialized in AI and computer vision has created a very [neat library that lets us use the RaspiCam in a C++ project](http://www.uco.es/investiga/grupos/ava/node/40), with or without involving OpenCV.
 
+Start by installing Cmake with `sudo apt-get install cmake`.
+
 Start by downloading the code that you will need to compile from [their SourceForge repository](https://sourceforge.net/projects/raspicam/files/?).
 
 Unzip that file to a folder in your Pi's Documents folder (well that's actually up to you), fire up a Terminal window, navigate to that newly created folder with `cd ~/Documents/your_complicated_path_to_raspicam` and then `mkdir build && cd build && cmake ..`.
