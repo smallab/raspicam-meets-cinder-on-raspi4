@@ -246,6 +246,7 @@ Then create a first shell script with `nano ~/Desktop/startup.sh`, type the foll
 #!/bin/sh
 echo your_folder_name
 cd /home/pi/Desktop/your_folder_name
+sleep 5
 ./BasicApp
 ```
 
@@ -255,6 +256,7 @@ Create a second script with `nano ~/Desktop/focus.sh`, type the following and sa
 
 ```
 #!/bin/sh
+sleep 10
 wmctrl -R BasicApp
 ```
 
@@ -266,9 +268,7 @@ Finally create/open the autostart routine file with `sudo nano /etc/xdg/lxsessio
 @lxpanel —profile LXDE-pi
 @pxmanfm —desktop —profile LXDE-pi
 #@xscreensaver -no-splash
-sleep 5
 /home/pi/Desktop/startup.sh
-sleep 10
 /home/pi/Desktop/focus.sh
 ```
 
