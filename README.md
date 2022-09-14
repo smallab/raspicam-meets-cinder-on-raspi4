@@ -18,7 +18,7 @@ When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with
 
 ## Raspbian OS setup
 
-Start by installing Raspbian OS in its Buster flavor (version 10) and not in its latest release! Follow the link: https://www.raspberrypi.com/software/. When selecting the right version, obviously prefer the GUI-enabled version, you'll need to be able display something in the end!
+Start by installing Raspbian OS in its Buster flavor (version 10) and not in its latest release! Follow the link: https://www.raspberrypi.com/software/ to download the "Raspberry Pi Imager". When selecting the right version, obviously prefer the GUI-enabled version, you'll need to be able display something in the end!
 
 Then update & upgrade packages with the `apt-get` command:
 
