@@ -72,6 +72,8 @@ Finally, [update the lib path](https://raspberrypi.stackexchange.com/questions/2
 ______________________________
 
 **Please note that to simply run an app that was previously compiled on a specific Pi (i.e. your dev Pi) and copy-pasted to a new Pi (i.e. your target, production Pi), that’s all that needs to be installed on that new Pi.**
+
+Jump to the [App autostart](#appautostart) section below to keep going after copying your app folder (typically on the production Pi's desktop).
 ______________________________
 
 
@@ -232,6 +234,7 @@ inline ImageSourceRef fromOcv( cv::Mat &mat )
 }
 ```
 
+<a name="appautostart"></a>
 ## App autostart
 To run art pieces in art spaces where you're not sitting all day to monitor power cuts, you'd better create an autostart routine. Good thing that the Pi is built for that: it doesn't have a start button, it just starts as soon as it gets the right kind of electricity flowing in it veins.
 
