@@ -73,7 +73,7 @@ ______________________________
 
 **Please note that to simply run an app that was previously compiled on a specific Pi (i.e. your dev Pi) and copy-pasted to a new Pi (i.e. your target, production Pi), that’s all that needs to be installed on that new Pi.**
 
-Jump to the [App autostart](#appautostart) section below to keep going after copying your app folder (typically on the production Pi's desktop).
+Jump to the [App autostart](#appautostart) section below to keep going after copying your app folder on the production Pi's desktop.
 ______________________________
 
 
