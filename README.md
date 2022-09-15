@@ -9,12 +9,15 @@ Why use a Pi board, for something that could easily run on a Mac mini with a lot
 ### Limitations!
 When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with the standard version. Make sure you read through the limitations before you embark on a "Pi-OpenGL" journey.
 
+
 ## Required devices
+
 * a "Pi" board: [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 * a micro SD card of 8Gb minimum
 * a power outlet for the Raspberry Pi
 * a "RaspiCam", preferably infrared-enhanced because they work better in low light conditions: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
 * a video projector with a resolution of at least 1024 × 576px
+
 
 ## Raspbian OS setup
 
@@ -27,6 +30,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
+
 ## OpenCV 3.2 install
 
 `sudo apt-get install libopencv-dev`
@@ -34,6 +38,7 @@ sudo apt-get upgrade
 OpenCV must be installed in version 3.2.0 for this program: don't try and install the latest!
 
 That's all there is to it: if this works fine then you've got OpenCV running on your machine, almost for free. Yay.
+
 
 ## RaspiCam setup
 
@@ -46,6 +51,7 @@ What's called a RaspiCam is a webcam that uses the special camera interface on t
 Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` in order for these changes to take effect.
 
 If you want to learn more about the official Pi camera and its use, follow the [official RaspiCam guide](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/1).
+
 
 ### Use with C++
 
@@ -69,14 +75,9 @@ Finally, [update the lib path](https://raspberrypi.stackexchange.com/questions/2
 
 `export LIBRARY_PATH=/opt/vc/lib`
 
-
-______________________________
-
 **Please note that to simply run an app that was previously compiled on a specific Pi (i.e. your dev Pi) and copy-pasted to a new Pi (i.e. your target, production Pi), that’s all that needs to be installed on that new Pi.**
 
 Jump to the [App autostart](#appautostart) section below to keep going after copying your app folder on the production Pi's desktop.
-______________________________
-
 
 
 ## Cinder
@@ -236,6 +237,7 @@ inline ImageSourceRef fromOcv( cv::Mat &mat )
 }
 ```
 
+
 <a name="appautostart"></a>
 ## App autostart
 
@@ -275,6 +277,6 @@ Finally create/open the autostart routine file with `sudo nano /etc/xdg/lxsessio
 /home/pi/Desktop/focus.sh
 ```
 
-You're all set, ready to `sudo reboot` to give it a shot.
+You're all set, ready to `sudo reboot` and give it a shot.
 
 *Post scriptum: again, if you're planning on "permanently" running your app on a different Pi than your dev Pi (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder **right besides** that compiled BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod +x ~/Desktop/your_folder_name/BasicApp`.*
