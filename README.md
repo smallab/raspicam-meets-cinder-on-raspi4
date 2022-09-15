@@ -80,7 +80,7 @@ ______________________________
 
 ## Cinder
 
-Cinder is a creative coding framework made in C++: it does what Processing does, but faster and using less resources. It is similar to OpenFrameworks, but better consolidated and packaged, more professional.
+Cinder is a creative coding framework made in C++: it does what [Processing](https://processing.org/) does, but faster and using less resources. It is similar to [OpenFrameworks](https://openframeworks.cc/), but better consolidated and packaged, more professional.
 
 https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html
 +
