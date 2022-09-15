@@ -14,7 +14,7 @@ When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with
 * a micro SD card of 8Gb minimum
 * a power outlet for the Raspberry Pi
 * a "RaspiCam", preferably infrared-enhanced because they work better in low light conditions: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
-* a video projector with a resolution of at least 1024 x 576px
+* a video projector with a resolution of at least 1024 × 576px
 
 ## Raspbian OS setup
 
@@ -81,6 +81,8 @@ ______________________________
 ## Cinder
 
 Cinder is a creative coding framework made in C++: it does what [Processing](https://processing.org/) does, but faster and using less resources. It is similar to [OpenFrameworks](https://openframeworks.cc/), but better consolidated and packaged, more professional.
+
+### Installing Cinder on the Pi
 
 https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html
 +
@@ -158,9 +160,9 @@ cmake ..
 ?
 
 
-### CINDER + RASPICAM
+### Using a RaspiCam from within a Cinder-based app
 
-Duplicate the `Cinder/samples/BasicApp` folder, name it whichever way you want and then add OpenCV code to use the RaspiCam:
+Easiest way to start a Cinder project on Raspbian Linux is to duplicate the `Cinder/samples/BasicApp` folder. Do that and name it whichever way you want. Then add OpenCV code to use the RaspiCam:
 
 `mkdir build && cd build` \
 `cmake .. -DCINDER_TARGET_GL=es3-rpi`
@@ -235,6 +237,7 @@ inline ImageSourceRef fromOcv( cv::Mat &mat )
 
 <a name="appautostart"></a>
 ## App autostart
+
 To run art pieces in art spaces where you're not sitting all day to monitor power cuts, you'd better create an autostart routine. Good thing that the Pi is built for that: it doesn't have a start button, it just starts as soon as it gets the right kind of electricity flowing in it veins.
 
 Start by installing a window controller app: `sudo apt-get install wmctrl`.
