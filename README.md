@@ -40,7 +40,7 @@ That's all there is to it: if this works fine then you've got OpenCV running on 
 What's called a RaspiCam is a webcam that uses the special camera interface on the Pi board. It's a very appropriate kind of device when you need to create a Computer Vision enabled installation with the Pi.
 
 ### Plug & play
-![Pi4 camera port](https://projects-static.raspberrypi.org/projects/getting-started-with-picamera/7ab130979e77e11eb977625713823e41ebe1ae64/en/images/pi4-camera-port.png)
+![Pi4 camera port](https://miro.medium.com/max/1400/1*xriFCyDMv-I4zmae08o-WA.png)
 
 Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` in order for these changes to take effect.
 
