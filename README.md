@@ -46,7 +46,7 @@ What's called a RaspiCam is a webcam that uses the special camera interface on t
 
 ### Plug & play
 
-*from https://medium.com/geekculture/camera-setup-on-raspberry-pi-4-912e7d415cdf* \
+*image from [Camera setup on Raspberry Pi 4](https://medium.com/geekculture/camera-setup-on-raspberry-pi-4-912e7d415cdf)* \
 ![Pi4 camera port](https://miro.medium.com/max/1400/1*xriFCyDMv-I4zmae08o-WA.png)
 
 Start by **allowing the use of the special camera interface on the Pi**. To do so via the Terminal, type `sudo raspi-config` and then choose Interfaces, Camera, and say that you want it enabled. Via the GUI open the raspberry menu, choose Preferences, Interfaces, Camera and click on the "enabled" radio button. You will need to `sudo reboot` in order for these changes to take effect.
