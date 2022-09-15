@@ -158,8 +158,7 @@ cmake ..
 ?
 
 
-CINDER + RASPICAM
-_________________________________
+### CINDER + RASPICAM
 
 Duplicate the `Cinder/samples/BasicApp` folder, name it whichever way you want and then add OpenCV code to use the RaspiCam:
 
@@ -274,6 +273,4 @@ Finally create/open the autostart routine file with `sudo nano /etc/xdg/lxsessio
 
 You're all set, ready to `sudo reboot` to give it a shot.
 
-——————————————————
-
-If you're planning on running your app on a different Pi than your dev Pi (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder *right besides* that compiled BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod +x ~/Desktop/your_folder_name/BasicApp`.
+*Post scriptum: again, if you're planning on "permanently" running your app on a different Pi than your dev Pi (i.e. a production Pi) make sure to copy-paste the compiled BasicApp and copy-paste the resources folder and the assets folder **right besides** that compiled BasicApp. Once pasted on the new Pi, make the BasicApp executable with `sudo chmod +x ~/Desktop/your_folder_name/BasicApp`.*
