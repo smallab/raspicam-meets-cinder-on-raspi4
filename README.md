@@ -184,7 +184,7 @@ Then:
 It works! Give yourself a high five 🙌 or even a hug 🤗.
 
 #### The OpenCV side of things
-In order to be able to use the `cv::Mat` images produced by OpenCV you need to fetch the Cinder method `fromOcv()` and its encapsulating class from https://github.com/cinder/Cinder-OpenCV/blob/master/include/CinderOpenCV.h:
+In order to be able to use the `cv::Mat` images produced by OpenCV you need to snatch the Cinder method `fromOcv()` and its encapsulating class from https://github.com/cinder/Cinder-OpenCV/blob/master/include/CinderOpenCV.h:
 
 ```
 class ImageSourceCvMat : public ImageSource {
