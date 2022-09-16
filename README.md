@@ -275,7 +275,7 @@ Finally create/open the autostart routine file with `sudo nano /etc/xdg/lxsessio
 ```
 @lxpanel —profile LXDE-pi
 @pxmanfm —desktop —profile LXDE-pi
-#@xscreensaver -no-splash
+@xscreensaver -no-splash
 /home/pi/Desktop/startup.sh
 /home/pi/Desktop/focus.sh
 ```
