@@ -163,15 +163,18 @@ cmake ..
 ?
 
 
-### Using a RaspiCam from within a Cinder-based app
+### Using OpenCV and a RaspiCam from within a Cinder-based app
 
-Easiest way to start a Cinder project on Raspbian Linux is to duplicate the `Cinder/samples/BasicApp` folder. Do that and name it whichever way you want. Then add OpenCV code to use the RaspiCam:
+#### The CMake side of things
+Easiest way to start a Cinder project on Raspbian Linux is to duplicate the `Cinder/samples/BasicApp` folder. Do that and name it whichever way you want (here we'll call it `your_folder_name`). Then CMake the project and manually add links to the compilation routine in order to include OpenCV and RaspiCam to the package:
 
 `mkdir build && cd build` \
 `cmake .. -DCINDER_TARGET_GL=es3-rpi`
 
-After that, you need to add ` -lopencv_core -lopencv_imgcodecs -lopencv_imgproc` in the `your_app_folder_name/proj/cmake/build/CMakeFiles/BasicApp.dir/link.txt` file at the end of the following line:
+When that's done, open the `your_folder_name/proj/cmake/build/CMakeFiles/BasicApp.dir/link.txt` file and at the end of the line, after:
 
+`-ldl -lpthread` \
+add the following links: \
 `-lraspicam -lraspicam_cv -lmmal -lmmal_core -lmmal_util -lopencv_core -lopencv_imgcodecs -lopencv_imgproc`
 
 Then:
@@ -179,9 +182,9 @@ Then:
 `make` \
 `./Debug/BasicApp/BasicApp`
 
+It works! Give yourself a high five 🙌 or even a hug 🤗.
 
-Starting from here, making art becomes possible!
-
+#### The OpenCV side of things
 In order to be able to use the `cv::Mat` images produced by OpenCV you need to fetch the Cinder method `fromOcv()` and its encapsulating class from https://github.com/cinder/Cinder-OpenCV/blob/master/include/CinderOpenCV.h:
 
 ```
