@@ -3,9 +3,9 @@
  * 
  * @author Matthieu Savary (contact@smallab.org)
  * @brief 
- * @version 0.1
- * @date 2022-01-16
- * 
+ * @version 0.2
+ * @date 2022-09-16
+ *
  * @copyright Copyright (c) 2022 SMALLAB.ORG
  * 
  */
@@ -28,6 +28,8 @@
 #include "cinder/Sphere.h"
 
 #include "cinder/ObjLoader.h"
+
+#include "cinder/Rand.h"
 
 #include <ctime>
 #include <iostream>
@@ -101,9 +103,7 @@ class BasicApp : public App {
   public:
 	void setup() override;
 
-	void mouseDown( MouseEvent event ) override;
-	void mouseDrag( MouseEvent event ) override;
-	void keyDown( KeyEvent event ) override;
+    void keyDown( KeyEvent event ) override;
 
 	void update() override;
 	void draw() override;
@@ -112,7 +112,6 @@ class BasicApp : public App {
 
   private:
 	void	loadObj( const DataSourceRef &dataSource );
-	void	writeObj();
 	void	detectMovement();
 	void	renderSceneToFbo();
 	void	renderSceneFboForBlurPass();
@@ -126,6 +125,8 @@ class BasicApp : public App {
 	static const int	FBO_WIDTH = 1024, FBO_HEIGHT = 576; // 16/9 ratio
 
 	vec2			_currentRot;
+    int                _reminderTimeOffset, _reminderTimeLimit = 180;
+
 	TriMeshRef		mMesh;
 	Sphere			mBoundingSphere;
 	CameraPersp		mCam;
@@ -183,6 +184,9 @@ void BasicApp::setup()
 
 	// cursor
 	hideCursor();
+
+    // timer for reminder movements
+    _reminderTimeOffset = getElapsedSeconds();
 }
 
 void BasicApp::keyDown( KeyEvent event )
@@ -193,20 +197,9 @@ void BasicApp::keyDown( KeyEvent event )
 			loadObj( loadFile( path ) );
 		}
 	}
-	else if( event.getChar() == 'w' ) {
-		writeObj();
-	}
-	else if( event.getChar() == 's' ) {
+	else if( event.getChar() == 'f' ) {
 		setFullScreen( !isFullScreen() );
 	}
-}
-
-void BasicApp::mouseDown( MouseEvent event )
-{
-}
-
-void BasicApp::mouseDrag( MouseEvent event )
-{
 }
 
 void BasicApp::loadObj( const DataSourceRef &dataSource )
@@ -220,15 +213,6 @@ void BasicApp::loadObj( const DataSourceRef &dataSource )
 	mBatch = gl::Batch::create( *mMesh, gl::getStockShader( gl::ShaderDef().color() ) ); // solid color shader, will default to white
 
 	mBoundingSphere = Sphere::calculateBoundingSphere( mMesh->getPositions<3>(), mMesh->getNumVertices() );
-}
-
-void BasicApp::writeObj()
-{
-	fs::path filePath = getSaveFilePath();
-	if( ! filePath.empty() ) {
-		console() << "writing mesh to file path: " << filePath << std::endl;
-		ci::writeObj( writeFile( filePath ), mMesh );
-	}
 }
 
 void BasicApp::update()
@@ -280,6 +264,9 @@ void BasicApp::detectMovement()
 	for( int i = 0; i<contours.size(); i++)
 	{ mc[i] = Point2f( mu[i].m10/mu[i].m00 , mu[i].m01/mu[i].m00 ); }
 
+    // reset time offset, something was moving in front of the camera
+    if (contours.size() > 0) _reminderTimeOffset = getElapsedSeconds();
+
 	// calculate pondered average centroid
 	// using contour areas
 	size_t counter = 0;
@@ -295,6 +282,12 @@ void BasicApp::detectMovement()
 		_centroid.x /= counter;
 		_centroid.y /= counter;
 	}
+
+    // if time limit is reached, move freely every 5 seconds
+    if (_reminderTimeOffset + _reminderTimeLimit < getElapsedSeconds()) {
+        _centroid = Point2f( Rand::randFloat(0, 200), Rand::randFloat(0, 200) );
+        _reminderTimeOffset = getElapsedSeconds() - _reminderTimeLimit + 5;
+    }
 }
 
 void BasicApp::renderSceneToFbo()
@@ -314,11 +307,12 @@ void BasicApp::renderSceneToFbo()
 	gl::setMatrices( mCam );
 
 	// calculate our destination & step (velocity) angles
-	if (_centroid.x >= 0 && _centroid.y >= 0){
-		vec2 dest = vec2(_centroid.x, _centroid.y);
-		vec2 step = (dest - _currentRot) / vec2( 8.0f, 8.0f );
-		_currentRot += step;
-	}
+    float steps = 8.f;
+    if (_centroid.x >= 0 && _centroid.y >= 0){
+        vec2 dest = vec2(_centroid.x, _centroid.y);
+        vec2 velocity = (dest - _currentRot) / vec2( steps );
+        _currentRot += velocity;
+    }
 
 	// draw our surveillance cam batch
 	gl::pushMatrices();
@@ -347,7 +341,7 @@ void BasicApp::renderSceneFboForBlurPass()
 	gl::setMatricesWindow( toPixels( mBlurFbo->getSize() ) );
 	{
 		gl::ScopedGlslProg shaderScp( mGlsl );
-		gl::drawSolidRect( Rectf( 0, 0, FBO_WIDTH, FBO_HEIGHT ) ); // getWindowWidth(), getWindowHeight()
+		gl::drawSolidRect( Rectf( 0, 0, FBO_WIDTH, FBO_HEIGHT ) );
 	}
 }
 
@@ -363,7 +357,7 @@ void BasicApp::draw()
 		gl::ScopedTextureBind texScp( mBlurFbo->getColorTexture(), 0 );
 		// throw in a second blur pass directly here
 		gl::ScopedGlslProg shaderScp( mGlslSecondPass );
-		gl::drawSolidRect( Rectf( 0, 0, getWindowWidth(), getWindowHeight() ) ); // FBO_WIDTH, FBO_HEIGHT
+		gl::drawSolidRect( Rectf( 0, 0, getWindowWidth(), getWindowHeight() ) );
 	}
 }
 
