@@ -130,7 +130,7 @@ libxi-dev
 
 You're now ready to clone Cinder and build it, using the right flag to only target OpenGL ES3 in order to fit with the Pi:
 
-`git clone —recursive https://github.com/cinder/Cinder.git`
+`git clone --recursive https://github.com/cinder/Cinder.git`
 `cd Cinder`
 `mkdir build && cd build`
 `cmake .. -DCINDER_TARGET_GL=es3-rpi`
