@@ -152,21 +152,9 @@ As of now, Cinder's samples should compile: try the Cinder/samples/BasicApp usin
 cd Cinder/samples/BasicApp/proj/cmake && mkdir build && cd build
 cmake .. -DCINDER_TARGET_GL=es3-rpi
 make
+./Debug/BasicApp/BasicApp
 ```
-
-?
-
-?
-
-?
-
-?
-
-?
-
-?
-
-?
+Got a window where you can draw with your mouse? It works!
 
 
 ### Using OpenCV and a RaspiCam from within a Cinder-based app
