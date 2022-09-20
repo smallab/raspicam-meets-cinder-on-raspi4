@@ -128,6 +128,10 @@ libxi-dev
 `sudo apt-get install xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev`
 `sudo apt-get install libxtst-dev`
 
+`sudo apt install libfontconfig1-dev`
+
+`sudo apt install libpulse-dev`
+
 You're now ready to clone Cinder and build it, using the right flag to only target OpenGL ES3 in order to fit with the Pi:
 
 `git clone --recursive https://github.com/cinder/Cinder.git`
