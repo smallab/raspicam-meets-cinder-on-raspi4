@@ -136,7 +136,7 @@ You're now ready to clone Cinder and build it, using the right flag to only targ
 git clone --recursive https://github.com/cinder/Cinder.git
 cd Cinder
 mkdir build && cd build
-cmake .. -DCINDER_TARGET_GL=es3-rpi`
+cmake .. -DCINDER_TARGET_GL=es3-rpi
 make -j 3
 ```
 
@@ -150,7 +150,7 @@ As of now, Cinder's samples should compile: try the Cinder/samples/BasicApp usin
 
 ```
 cd Cinder/samples/BasicApp/proj/cmake && mkdir build && cd build
-cmake ..
+cmake .. -DCINDER_TARGET_GL=es3-rpi
 make
 ```
 
