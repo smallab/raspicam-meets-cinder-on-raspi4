@@ -125,23 +125,24 @@ libxinerama-dev \
 libxi-dev
 ```
 
-`sudo apt-get install xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev`
-`sudo apt-get install libxtst-dev`
-
-`sudo apt install libfontconfig1-dev`
-
-`sudo apt install libpulse-dev`
+```
+sudo apt-get install xcb libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev
+sudo apt-get install libxtst-dev
+```
 
 You're now ready to clone Cinder and build it, using the right flag to only target OpenGL ES3 in order to fit with the Pi:
 
-`git clone --recursive https://github.com/cinder/Cinder.git`
-`cd Cinder`
-`mkdir build && cd build`
-`cmake .. -DCINDER_TARGET_GL=es3-rpi`
-`make -j 3`
+```
+git clone --recursive https://github.com/cinder/Cinder.git
+cd Cinder
+mkdir build && cd build
+cmake .. -DCINDER_TARGET_GL=es3-rpi`
+make -j 3
+```
 
+When you're done compiling Cinder, it's time to use Cinder. Let' head to the `/samples`.
 
-In order to compile without a system path error, change line 136 in the `proj/cmake/modules/cinderMakeApp.cmake` file by adding the `-lstdc++fs` flag to notify the Linker it should use that file system lib:
+In order to compile the samples without a system path error, change line 136 in the `proj/cmake/modules/cinderMakeApp.cmake` file by adding the `-lstdc++fs` flag to notify the Linker it should use that file system lib:
 
 `target_link_libraries( ${ARG_APP_NAME} PUBLIC cinder ${ARG_LIBRARIES} -lstdc++fs )`
 
@@ -150,6 +151,7 @@ As of now, Cinder's samples should compile: try the Cinder/samples/BasicApp usin
 ```
 cd Cinder/samples/BasicApp/proj/cmake && mkdir build && cd build
 cmake ..
+make
 ```
 
 ?
