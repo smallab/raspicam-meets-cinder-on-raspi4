@@ -157,6 +157,9 @@ make
 Got a window where you can draw with your mouse? It works!
 
 
+!! IMAGE DE LA FENÊTRE !!
+
+
 ### Using OpenCV and a RaspiCam from within a Cinder-based app
 
 #### The CMake side of things
@@ -175,7 +178,7 @@ Then:
 `make` \
 `./Debug/BasicApp/BasicApp`
 
-It works! Give yourself a high five 🙌 or even a hug 🤗.
+It works again! Definitely give yourself a high five 🙌 or even a hug 🤗.
 
 #### The OpenCV side of things
 In order to be able to use the `cv::Mat` images produced by OpenCV you need to snatch the Cinder method `fromOcv()` and its encapsulating class from https://github.com/cinder/Cinder-OpenCV/blob/master/include/CinderOpenCV.h:
