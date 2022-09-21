@@ -156,7 +156,7 @@ make
 ```
 Got a window where you can draw with your mouse? It works!
 
-![BasicApp screen print](https://dash.files.user.io/f/project/cKAALj3XihJ3KDZKY/basicapp-screenprint.png?show)
+![BasicApp screen print](https://dash.files.user.io/f/project/cKAALj3XihJ3KDZKY/basicapp-screenprint.png?show&v2)
 
 
 ### Using OpenCV and a RaspiCam from within a Cinder-based app
