@@ -87,16 +87,17 @@ Cinder is a creative coding framework made in C++: it does what [Processing](htt
 
 ### Installing Cinder on the Pi
 
-https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html
-+
-https://discourse.libcinder.org/t/running-on-a-rapberry-pi-4-solved/1595/2
-+
-https://github.com/go-vgo/robotgo/issues/19
-+
-https://stackoverflow.com/questions/61953106/compilation-fail-with-stdfilesystem-on-raspberry?noredirect=1&lq=1
+Let's not get into the details of what line comes from what comment, but the following apt-get installs, target details and cmake file updates come from these four links:  
+* https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html \
+* https://discourse.libcinder.org/t/running-on-a-rapberry-pi-4-solved/1595/2 \
+* https://github.com/go-vgo/robotgo/issues/19 \
+* https://stackoverflow.com/questions/61953106/compilation-fail-with-stdfilesystem-on-raspberry?noredirect=1&lq=1
 
+Let's start by installing cmake:  
 
 `sudo apt-get install cmake`
+
+And then libs that will be linked when building Cinder:  
 
 ```
 sudo apt-get install libxcursor-dev \
@@ -140,7 +141,7 @@ cmake .. -DCINDER_TARGET_GL=es3-rpi
 make -j 3
 ```
 
-When you're done compiling Cinder, it's time to use Cinder. Let' head to the `/samples`.
+You're done compiling Cinder? Time to use it. Let' head to the `/samples`.
 
 In order to compile the samples without a system path error, change line 136 in the `proj/cmake/modules/cinderMakeApp.cmake` file by adding the `-lstdc++fs` flag to notify the Linker it should use that file system lib:
 
