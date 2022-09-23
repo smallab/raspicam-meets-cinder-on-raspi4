@@ -88,10 +88,10 @@ Cinder is a creative coding framework made in C++: it does what [Processing](htt
 ### Installing Cinder on the Pi
 
 Let's not get into the details of what line comes from what comment, but the following apt-get installs, target details and cmake file updates come from these four links:  
-* https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html \
-* https://discourse.libcinder.org/t/running-on-a-rapberry-pi-4-solved/1595/2 \
-* https://github.com/go-vgo/robotgo/issues/19 \
-* https://stackoverflow.com/questions/61953106/compilation-fail-with-stdfilesystem-on-raspberry?noredirect=1&lq=1
+* [LibCinder docs](https://libcinder.org/docs/branch/master/guides/linux-notes/rpi3.html)
+* [LibCinder discourse](https://discourse.libcinder.org/t/running-on-a-rapberry-pi-4-solved/1595/2)
+* [Github](https://github.com/go-vgo/robotgo/issues/19)
+* [StackOverflow](https://stackoverflow.com/questions/61953106/compilation-fail-with-stdfilesystem-on-raspberry?noredirect=1&lq=1)
 
 Let's start by installing cmake:  
 
