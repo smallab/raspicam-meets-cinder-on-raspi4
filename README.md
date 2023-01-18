@@ -171,12 +171,11 @@ Easiest way to start a Cinder project on Raspbian Linux is to duplicate the `Cin
 When that's done, open the `your_folder_name/proj/cmake/build/CMakeFiles/BasicApp.dir/link.txt` file and at the end of the line, after `-ldl -lpthread` :
 
 add the following links: \
-`-lraspicam -lraspicam_cv -lopencv_core -lopencv_imgcodecs -lopencv_imgproc`. <!-- -lmmal -lmmal_core -lmmal_util -->
+`-lraspicam -lraspicam_cv -lopencv_core -lopencv_imgcodecs -lopencv_imgproc`  <!-- -lmmal -lmmal_core -lmmal_util -->
 
 Then:
 
-`make` \
-`./Debug/BasicApp/BasicApp`
+`make && ./Debug/BasicApp/BasicApp`
 
 It works again! Definitely give yourself a high five 🙌 or even a hug 🤗.
 
