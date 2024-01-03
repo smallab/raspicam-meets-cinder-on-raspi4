@@ -1,5 +1,5 @@
 # Using the RaspiCam interface on Raspberry Pi 4 from within Cinder
-This tutorial is based on the [Extension du Vide](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/), open-sourced art work developed for French artist [Marie-Julie Bourgeois](https://www.mariejuliebourgeois.fr).
+This tutorial is based on the open-sourced art work [Extension du Vide](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/) developed for French artist [Marie-Julie Bourgeois](https://www.mariejuliebourgeois.fr).
 
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
 
@@ -7,12 +7,12 @@ This tutorial is based on the [Extension du Vide](https://www.mariejuliebourgeoi
 Why use a Pi board, for something that could easily run on a Mac mini with a lot less hassle? Raspberry Pi's are much cheaper, much lighter, much smaller, much less energy-consuming, all things that make them the platform of choice for interactive installations when their processing power will be enough… and OpenGL ES3 will do what you need it to do.
 
 ### Limitations!
-When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with the standard version. Make sure you read through the limitations before you embark on a "Pi-OpenGL" journey.
+When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with the standard version. Make sure you read through the limitations before you embark on a "Pi-OpenGL" journey. And be sure to check out what can be done with shaders — limited to their V100 brew as well.
 
 
 ## Required devices
 
-* a "Pi" board: [Raspberry Pi 4 Model B (preferably with 8Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+* a "Pi" board: [Raspberry Pi 4 Model B (with at least 4Gb of RAM)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 * a micro SD card of 8Gb minimum
 * a power outlet for the Raspberry Pi
 * a "RaspiCam", preferably infrared-enhanced because they work better in low light conditions: [Raspberry Pi Camera Module 2 NoIR](https://www.raspberrypi.com/products/pi-noir-camera-v2/)
