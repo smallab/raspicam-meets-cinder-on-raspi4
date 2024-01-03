@@ -1,5 +1,5 @@
-# Extension du Vide
-[Extension du Vide](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/) is an open-sourced art work by French artist [Marie-Julie Bourgeois](https://www.mariejuliebourgeois.fr).
+# Using the RaspiCam interface on Raspberry Pi 4 from within Cinder
+This tutorial is based on the [Extension du Vide](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/), open-sourced art work developed for French artist [Marie-Julie Bourgeois](https://www.mariejuliebourgeois.fr).
 
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
 
@@ -21,7 +21,7 @@ When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with
 
 ## Raspbian OS setup
 
-Start by installing Raspbian OS in its Buster flavor (version 10) and not in its latest release! Follow the link: https://www.raspberrypi.com/software/ to download the "Raspberry Pi Imager". When selecting the right version, obviously prefer the GUI-enabled version, you'll need to be able display something in the end!
+Start by installing Raspbian OS in its Buster flavor (version 10) and **not in its latest release**. Follow the link: https://www.raspberrypi.com/software/ to download the "Raspberry Pi Imager". When selecting the right version, obviously prefer the GUI-enabled version, you'll need to be able display something in the end.
 
 Then update & upgrade packages with the `apt-get` command:
 
