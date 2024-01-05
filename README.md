@@ -1,10 +1,13 @@
-# Using the RaspiCam interface on Raspberry Pi 4 from within Cinder
+# Using the RaspiCam interface on Raspberry Pi 4 and compiling with Cinder
 This tutorial is based on the open-sourced art work [Extension du Vide](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/) developed for French artist [Marie-Julie Bourgeois](https://www.mariejuliebourgeois.fr).
 
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
 
 ### Why a Pi?
 Why use a Pi board, for something that could easily run on a Mac mini with a lot less hassle? Raspberry Pi's are much cheaper, much lighter, much smaller, much less energy-consuming, all things that make them the platform of choice for interactive installations when their processing power will be enough… and OpenGL ES3 will do what you need it to do.
+
+### Then why a RaspiCam?
+The Raspberry Pi built-in camera interface is efficient, well documented and avoids the USB bus which is a plus on the hardware level of things as well as on the software side of things.
 
 ### Limitations!
 When speaking of OpenGL ES3, do keep in mind that it bears limits, compared with the standard version. Make sure you read through the limitations before you embark on a "Pi-OpenGL" journey. And be sure to check out what can be done with shaders — limited to their V100 brew as well.
