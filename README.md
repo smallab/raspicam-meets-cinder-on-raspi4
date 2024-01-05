@@ -1,4 +1,4 @@
-# Using the RaspiCam interface on Raspberry Pi 4 and compiling with Cinder
+# Using the RaspiCam interface on Raspberry Pi 4 for computer vision and compiling with Cinder (C++) and OpenCV
 This tutorial is based on the open-sourced art work [Extension du Vide](https://www.mariejuliebourgeois.fr/projets/extension-du-vide/) developed for French artist [Marie-Julie Bourgeois](https://www.mariejuliebourgeois.fr).
 
 ![Extension du Vide](https://www.mariejuliebourgeois.fr/wp-content/uploads/2021/10/EDV5.png)
